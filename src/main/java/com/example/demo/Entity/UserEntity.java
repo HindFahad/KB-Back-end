@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "User")
-public class User {
+public class UserEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,17 +30,16 @@ public class User {
 	@Column(name = "user_name")
 	private String username;
 	@Column(name = "password")
-	private String  password;
+	private String password;
 
 	@Column(name = "email")
 	private String email;
-	
 
 	@OneToMany(mappedBy = "user_answer", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	private List<AnswersEntity> answers;
-	
+	private List<AnswersEntity> answersEntity;
+
 	@OneToMany(mappedBy = "user_qustion", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	private List<QustionsEntity> qustions;
+	private List<QustionsEntity> qustionsEntity;
 
 	public int getId() {
 		return id;
@@ -74,10 +73,6 @@ public class User {
 		this.username = username;
 	}
 
-
-
-	
-
 	public String getPassword() {
 		return password;
 	}
@@ -94,23 +89,22 @@ public class User {
 		this.email = email;
 	}
 
-	public List<AnswersEntity> getAnswers() {
-		return answers;
+	public List<AnswersEntity> getAnswersEntity() {
+		return answersEntity;
 	}
 
-	public void setAnswers(List<AnswersEntity> answers) {
-		this.answers = answers;
+	public void setAnswersEntity1(List<AnswersEntity> answersEntity) {
+		this.answersEntity = answersEntity;
 	}
 
-	public List<QustionsEntity> getQustions() {
-		return qustions;
+	public List<QustionsEntity> getQustionsEntity() {
+		return qustionsEntity;
 	}
 
-	public void setQustions(List<QustionsEntity> qustions) {
-		this.qustions = qustions;
+	public void setQustionsEntity(List<QustionsEntity> qustionsEntity) {
+		this.qustionsEntity = qustionsEntity;
 	}
 
 
 
-	
 }

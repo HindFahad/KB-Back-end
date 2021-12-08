@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,13 +28,13 @@ import com.example.demo.Repository.QustionsRepository;
 public class Qustionscontroller {
 	@Autowired
 	private QustionsRepository qustionsrepository;
-	@GetMapping("/hello")
-	ResponseEntity<String> hello() {
-	    return new ResponseEntity<>("Hello World!", HttpStatus.OK);
-	}
+
+	
+	
 	@PostMapping("/add")
 	public QustionsEntity addQustions(@RequestParam(name = "qustion") String qustions) {
 		QustionsEntity q = new QustionsEntity();
+
 		q.setQustions(qustions);
 		q.setDate(new Date());
 		q = qustionsrepository.save(q);
@@ -63,7 +63,7 @@ public class Qustionscontroller {
 		List<AnswersEntity> lis = new ArrayList<>();
 		Optional<QustionsEntity> q = qustionsrepository.findById(id);
 		if (q.isPresent()) {
-			for (AnswersEntity a : q.get().getAnswers()) {
+			for (AnswersEntity a : q.get().getAnswers()){
 				AnswersEntity entity = new AnswersEntity();
 				entity.setId(a.getId());
 				entity.setDate(a.getDate());

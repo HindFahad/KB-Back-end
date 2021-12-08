@@ -24,6 +24,7 @@ public class Answerscontroller {
 		a.setAnswer(Answers);
 		a.setDate(new Date());
 		a.setQustions(Qustions);
+		
 		a = answersrepository.save(a);
 		return a;
 	}

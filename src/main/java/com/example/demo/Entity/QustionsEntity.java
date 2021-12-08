@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Qustions")
 public class QustionsEntity {
@@ -32,55 +34,44 @@ public class QustionsEntity {
 
 	@OneToMany(mappedBy = "qustions",fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = false)
 	private List<AnswersEntity> answers;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user_qustion;
-
+	private UserEntity user_qustion;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getQustions() {
 		return Qustions;
 	}
-
 	public void setQustions(String qustions) {
 		Qustions = qustions;
 	}
-
 	public Date getDate() {
 		return date;
 	}
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 	public List<AnswersEntity> getAnswers() {
 		return answers;
 	}
-
 	public void setAnswers(List<AnswersEntity> answers) {
 		this.answers = answers;
 	}
-
-	public User getUser_qustion() {
+	public UserEntity getUser_qustion() {
 		return user_qustion;
 	}
-
-	public void setUser_qustion(User user_qustion) {
+	public void setUser_qustion(UserEntity user_qustion) {
 		this.user_qustion = user_qustion;
 	}
 
 	
 
-	
-	
 	
 
 

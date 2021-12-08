@@ -29,13 +29,13 @@ public class AnswersEntity {
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "qustions_id")
-	private QustionsEntity qustions;
+	private QustionsEntity  qustions;
 
 	// User Relation //
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user_answer;
+	private UserEntity user_answer;
 
 	public int getId() {
 		return id;
@@ -69,13 +69,17 @@ public class AnswersEntity {
 		this.qustions = qustions;
 	}
 
-	public User getUser_answer() {
+	public UserEntity getUser_answer() {
 		return user_answer;
 	}
 
-	public void setUser_answer(User user_answer) {
+	public void setUser_answer(UserEntity user_answer) {
 		this.user_answer = user_answer;
 	}
+
+
+
 	
 
+	
 }
